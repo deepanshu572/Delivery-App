@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RiderFlow — Pick Order &amp; Verify Items</title>
+  <meta name="description"
+    content="Verify the order items at the restaurant, review restaurant and customer details, then swipe to confirm pickup." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
+  <link rel="stylesheet" href="../assets/css/rider.css" />
+</head>
+
+<body>
+  <div class="main">
+    <div class="phone">
+
+
+      <div class="appbar">
+        <div class="left">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white"
+            stroke="#e12329" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-package h-4 w-4 text-primary" aria-hidden="true">
+            <path
+              d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z">
+
+            </path>
+            <path d="M12 22V12"></path>
+            <polyline points="3.29 7 12 12 20.71 7"></polyline>
+            <path d="m7.5 4.27 9 5.15"></path>
+          </svg>
+          <h1>Pick order</h1>
+        </div>
+        <span class="pill info">Rasoi Ghar</span>
+      </div>
+
+      <div class="screen pad pt-20">
+        <div class="ta-center">
+          <p class="label">Order ID</p>
+          <p class="otp-big">567100<b>2428</b></p>
+        </div>
+
+        <details class="card acc mt5" open>
+          <summary>
+            <span class="iconbox"><svg class="ic" viewBox="0 0 24 24">
+                <path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z" />
+                <path d="M8 8h8M8 12h8" />
+              </svg></span>
+            <span><b class="fs-14">Order details</b><br /><span class="muted">3 items · Rasoi Ghar</span></span>
+            <svg class="ic chev" viewBox="0 0 24 24">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </summary>
+          <div class="body">
+            <div class="item"><span class="qty">2×</span> Veg Burger</div>
+            <div class="item"><span class="qty">1×</span> Chicken Burger</div>
+            <div class="item"><span class="qty">1×</span> French Fries</div>
+          </div>
+        </details>
+
+        <details class="card acc mt3">
+          <summary>
+            <span class="iconbox">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M6 2v7"></path>
+  <path d="M3 2v7a3 3 0 0 0 6 0V2"></path>
+  <path d="M6 12v10"></path>
+
+  <path d="M18 2c-2 2-3 5-3 8 0 2 1 3 3 3v9"></path>
+  <path d="M18 2v20"></path>
+</svg>
+            
+            
+            </span>
+            <b class="fs-14 grow">Restaurant details</b>
+            <svg class="ic chev" viewBox="0 0 24 24">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </summary>
+          <div class="body">
+            <p class="muted">Rasoi Ghar · Main road Hinoo Chowk Ranchi, Jharkhand 834001</p>
+          </div>
+        </details>
+
+        <details class="card acc mt3">
+          <summary>
+            <span class="iconbox">
+              <svg class="ic" viewBox="0 0 24 24">
+                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg></span>
+            <b class="fs-14 grow">Customer details</b>
+            <svg class="ic chev" viewBox="0 0 24 24">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </summary>
+          <div class="body">
+            <p class="muted">Rahul Kumar · Yamuna Apartment, 150115768, Ranchi, Jharkhand 834002</p>
+          </div>
+        </details>
+
+        <div class="grow"></div>
+      </div>
+
+      <div class="cta-wrap">
+        <div class="swipe" data-next="/pages/reach-drop.html" data-done="Order picked up">
+          <div class="fillbar"></div>
+          <div class="txt">Picked order</div>
+          <div class="knob"><svg class="ic" viewBox="0 0 24 24">
+              <path d="m9 18 6-6-6-6" />
+            </svg></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 
+<nav class="steps">
+  <a href="/rider/index.html">01 Orders</a>
+  <a href="/rider/new-order.html">02 New order</a>
+  <a href="/rider/reach-pickup.html">03 Reach pickup</a>
+  <a href="/rider/pick-order.html" class="here">04 Pick order</a>
+  <a href="/rider/reach-drop.html">05 Reach drop</a>
+  <a href="/rider/delivered.html">06 Deliver</a>
+</nav> -->
+
+  <script src="../assets/js/rider.js"></script>
+
+</body>
+
+</html>

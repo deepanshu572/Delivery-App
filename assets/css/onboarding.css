@@ -1,0 +1,304 @@
+/* RiderFlow — onboarding screens (shared with rider.css tokens) */
+
+.ob-hero {
+    background: linear-gradient(160deg, oklch(0.68 0.19 30), oklch(0.585 0.221 26.5));
+    border-radius: 0 0 32px 32px;
+    padding: 28px 20px 24px;
+    color: #fff;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.ob-hero::before,
+.ob-hero::after {
+    content: "";
+    position: absolute;
+    border-radius: 999px;
+    background: oklch(1 0 0 / 0.12);
+}
+
+.ob-hero::before {
+    height: 140px;
+    width: 140px;
+    top: -50px;
+    right: -40px;
+}
+
+.ob-hero::after {
+    height: 90px;
+    width: 90px;
+    bottom: -30px;
+    left: -20px;
+}
+
+.ob-hero .art {
+    position: relative;
+    height: 150px;
+    margin: 6px auto 14px;
+    display: grid;
+    place-items: center;
+}
+
+.ob-hero h2 {
+    position: relative;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+}
+
+.ob-hero p {
+    position: relative;
+    font-size: 12px;
+    opacity: .85;
+    margin-top: 4px;
+}
+
+.ob-body {
+    padding: 18px 16px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.ob-title {
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.ob-sub {
+    font-size: 12px;
+    color: var(--muted-fg);
+    line-height: 1.5;
+}
+
+.ob-sub a {
+    color: var(--primary);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.field label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.field input,
+.field select {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--card);
+    padding: 11px 12px;
+    font: inherit;
+    font-size: 13px;
+    color: var(--card-fg);
+    outline: none;
+}
+
+.field input:focus,
+.field select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px oklch(0.585 0.221 26.5 / 0.15);
+}
+
+.field input::placeholder {
+    color: oklch(0.7 0.01 265);
+}
+
+.field .with-icon {
+    position: relative;
+}
+
+.field .with-icon input {
+    padding-right: 38px;
+}
+
+.field .with-icon svg {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--muted-fg);
+}
+
+.check {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 11px;
+    color: var(--muted-fg);
+}
+
+.check input {
+    margin-top: 2px;
+    accent-color: var(--primary);
+}
+
+.check a {
+    color: var(--info);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.btn-primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: 999px;
+    padding: 14px;
+    background: var(--primary);
+    color: #fff;
+    font: inherit;
+    font-size: 15px;
+    font-weight: 800;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: var(--shadow-cta);
+}
+
+.btn-primary:disabled {
+    opacity: .55;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.otp-row {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin: 16px 0;
+}
+
+.otp-row input {
+    width: 46px;
+    height: 52px;
+    text-align: center;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 800;
+    font-family: inherit;
+    background: var(--card);
+    color: var(--card-fg);
+    outline: none;
+}
+
+.otp-row input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px oklch(0.585 0.221 26.5 / 0.15);
+}
+
+.backbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px 0;
+}
+
+.backbar a {
+    display: grid;
+    place-items: center;
+    height: 32px;
+    width: 32px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--card-fg);
+    text-decoration: none;
+}
+
+.backbar .ob-heading {
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.doc-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 15px 14px;
+    text-decoration: none;
+    color: var(--card-fg);
+    box-shadow: var(--shadow-soft);
+    justify-content: space-between;
+    
+}
+
+.doc-row b {
+    font-size: 14px;
+    font-weight: 700;
+    flex: 1;
+}
+
+.doc-row .chev {
+    color: var(--muted-fg);
+}
+
+.doc-row.done {
+    border-color: oklch(0.6 0.14 155 / 0.5);
+}
+
+.doc-row .tick {
+    display: grid;
+    place-items: center;
+    height: 22px;
+    width: 22px;
+    border-radius: 999px;
+    background: var(--success);
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.upload-box {
+    border: 1.5px dashed var(--border);
+    border-radius: 14px;
+    padding: 18px 14px;
+    text-align: center;
+    background: var(--card);
+}
+
+.upload-box .hint {
+    font-size: 11px;
+    color: var(--muted-fg);
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.upload-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid oklch(0.585 0.221 26.5 / 0.5);
+    border-radius: 999px;
+    background: oklch(0.585 0.221 26.5 / 0.08);
+    color: var(--primary);
+    padding: 8px 14px;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.upload-box.is-done {
+    border-color: oklch(0.6 0.14 155 / 0.6);
+    border-style: solid;
+}
+
+.uploaded-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 800;
+}
+.c-peace{
+    color: oklch(1 0 0);
+}

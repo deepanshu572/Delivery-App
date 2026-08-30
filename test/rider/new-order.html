@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>RiderFlow — New Order Request</title>
+<meta name="description" content="Incoming order alert with trip distance, pickup restaurant details and a swipe-to-accept action." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
+<link rel="stylesheet" href="/rider/rider.css" />
+</head>
+<body>
+<div class="stage-head">
+  <span class="badge-step">02 · New order</span>
+  <p>A nearby order arrives — accept before the timer runs out.</p>
+</div>
+
+<div class="phone">
+  <div class="statusbar">
+    <span data-clock>9:41</span>
+    <div class="icons">
+      <span class="bars"><i></i><i></i><i></i><i></i></span>
+      <span class="battery"><span class="body"><span class="fill"></span></span><span class="cap"></span></span>
+    </div>
+  </div>
+
+  <div class="screen screen-center">
+    <div class="deny-row">
+      <a href="/rider/index.html" class="pill danger deny-link" data-countdown data-seconds="18">✕ Deny · 18s</a>
+    </div>
+
+    <div class="map circle mt3">
+      <svg class="route" viewBox="0 0 320 320"><path d="M40 290 C 90 250, 70 190, 130 170 S 210 140, 230 60" stroke="oklch(0.55 0.19 255)" stroke-width="7" fill="none" opacity=".25" stroke-linecap="round"/><path d="M40 290 C 90 250, 70 190, 130 170 S 210 140, 230 60" stroke="oklch(0.55 0.19 255)" stroke-width="3.5" fill="none" stroke-dasharray="10 12" stroke-linecap="round"/></svg>
+      <span class="pin l70 t42"><i><b></b></i></span>
+      <span class="pin success l34 t82"><i><b></b></i></span>
+    </div>
+
+    <h2 class="big mt4">New order!</h2>
+
+    <div class="card p mt4 w-full">
+      <p class="muted ta-center">Trip distance <b class="card-strong">4.6 km</b></p>
+      <div class="grid2 mt3">
+        <div class="chip"><span>Pickup</span><b>0.2 km</b></div>
+        <div class="chip"><span>Drop</span><b>4.4 km</b></div>
+      </div>
+    </div>
+
+    <div class="card p mt3 w-full">
+      <p class="label">Pickup from</p>
+      <p class="title mt2">Rasoi Ghar</p>
+      <p class="muted">Main road Hinoo Chowk Ranchi, Jharkhand 834001</p>
+      <p class="mt3 row info-note">
+        <svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        2 mins away
+      </p>
+    </div>
+    <div class="grow"></div>
+  </div>
+
+  <div class="cta-wrap">
+    <div class="swipe" data-next="/rider/reach-pickup.html" data-done="Order accepted">
+      <div class="fillbar"></div>
+      <div class="txt">Accept order</div>
+      <div class="knob"><svg class="ic" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></div>
+    </div>
+  </div>
+</div>
+
+<nav class="steps">
+  <a href="/rider/index.html">01 Orders</a>
+  <a href="/rider/new-order.html" class="here">02 New order</a>
+  <a href="/rider/reach-pickup.html">03 Reach pickup</a>
+  <a href="/rider/pick-order.html">04 Pick order</a>
+  <a href="/rider/reach-drop.html">05 Reach drop</a>
+  <a href="/rider/delivered.html">06 Deliver</a>
+</nav>
+
+<script src="../assets/js/rider.js"></script>
+</body>
+</html>

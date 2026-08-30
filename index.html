@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>RiderFlow — Partner Onboarding | Login</title>
+<meta name="description" content="Join as a delivery partner: enter your mobile number to start onboarding and earn a stable monthly income." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
+<link rel="stylesheet" href="assets/css/rider.css" />
+<link rel="stylesheet" href="assets/css/onboarding.css" />
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="main">
+
+    <div class="phone">
+     
+      <div class="screen">
+        <div class="screen_img">
+            <img src="assets/img/icon/screen1.svg" alt="">
+        </div>
+    
+        <div class="ob-body">
+          <p class="ob-title">Enter Mobile Number</p>
+          <form action="otp.html" method="get">
+            <div class="field">
+              <input type="tel" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" placeholder="e.g. 1234567890" required aria-label="Mobile number" />
+            </div>
+            <label class="check mt3">
+              <input type="checkbox" required />
+              <span>By signing up I agree to the <a href="#">Terms of use</a> and <a href="#">Privacy Policy</a>.</span>
+            </label>
+            <button class="btn-primary mt4 w-full" type="submit">Send OTP</button>
+          </form>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+<script src="../assets/js/rider.js"></script>
+</body>
+</html>
+

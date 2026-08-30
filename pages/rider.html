@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>RiderFlow — Orders | Delivery Partner App</title>
+<meta name="description" content="Rider home screen: go online, track today's trips and earnings, and wait for new delivery orders nearby." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
+<link rel="stylesheet" href="../assets/css/rider.css" />
+</head>
+<body>
+
+
+<div class="phone">
+
+
+  <div class="appbar">
+    <div class="left">
+      <svg class="ic c-primary" viewBox="0 0 24 24"><path d="m7.5 4.27 9 5.15M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg>
+      <h1>Orders</h1>
+    </div>
+    <span class="pill primary">Online</span>
+  </div>
+
+  <div class="screen pad pt-16">
+    <div class="spread">
+      <div>
+        <p class="muted">Good evening,</p>
+        <p class="title">Bikash</p>
+      </div>
+      <div class="toggle">
+        <button type="button" data-state="off">OFF</button>
+        <button type="button" data-state="on" class="on">ON</button>
+      </div>
+    </div>
+
+    <div class="grid3 mt4">
+      <div class="stat"><b>12</b><span>Trips</span></div>
+      <div class="stat"><b>₹840</b><span>Earned</span></div>
+      <div class="stat"><b>4h</b><span>Online</span></div>
+    </div>
+
+    <div class="pulse-wrap">
+      <div class="pulse">
+        <svg class="ic lg c-primary" viewBox="0 0 24 24"><circle cx="18.5" cy="17.5" r="3.5"/><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="15" cy="5" r="1"/><path d="M12 17.5V14l-3-3 4-3 2 3h2"/></svg>
+      </div>
+      <p class="title mt4" data-status-text>Waiting for orders</p>
+      <p class="muted mt2 mw-230">You're online. New orders nearby will pop up here instantly.</p>
+    </div>
+  </div>
+
+  <div class="cta-wrap">
+    <div class="swipe" data-next="/pages/new-order.html" data-done="Order incoming…">
+      <div class="fillbar"></div>
+      <div class="txt">Simulate incoming order</div>
+      <div class="knob">
+        <svg class="ic" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
+      </div>
+    </div>
+  </div>
+
+  <nav class="footnav">
+    <a href="/pages/rider.html" class="active">
+<svg class="ic c-peace" viewBox="0 0 24 24"><path d="m7.5 4.27 9 5.15M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 5 8.7-5M12 22V12"></path></svg>      Orders
+    </a>
+    <a href="/pages/delivered.html">
+      <svg class="ic" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      Account
+    </a>
+  </nav>
+</div>
+
+
+
+<script src="../assets/js/rider.js"></script>
+
+</body>
+</html>
