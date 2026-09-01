@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Navigation to Customer — Rider App</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="main">
+    <section class="screen" id="screen-nav-customer">
+      <div class="topbar">
+        <a class="icon-btn" href="home.html">←</a>
+        <h2>Navigation to Customer</h2>
+        <button class="help-link"><i data-lucide="headset"></i> Help</button>
+      </div>
+      <div class="map-wrap">
+        <div class="map-badge">🚴 ON THE WAY TO CUSTOMER</div>
+        <svg viewBox="0 0 375 300" preserveAspectRatio="none">
+          <rect width="375" height="300" fill="#E6EAEE"/>
+          <path d="M0 60 H375 M0 130 H375 M0 210 H375" stroke="#D7DCE2" stroke-width="2"/>
+          <path d="M70 0 V300 M220 0 V300 M300 0 V300" stroke="#D7DCE2" stroke-width="2"/>
+          <path d="M40 60 C 90 90, 130 120, 180 150 S 300 210, 330 260" stroke="#2D7FF9" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <circle cx="40" cy="60" r="7" fill="#2D7FF9" stroke="#fff" stroke-width="3"/>
+          <g transform="translate(318,246)">
+            <path d="M12 0C5.4 0 0 5.4 0 12c0 9 12 22 12 22s12-13 12-22c0-6.6-5.4-12-12-12Z" fill="#F1592A"/>
+            <circle cx="12" cy="12" r="5" fill="#fff"/>
+          </g>
+        </svg>
+      </div>
+      <div class="map-sheet">
+        <div class="drag-handle"></div>
+        <div class="map-meta-row"><span class="order-id">Order ID #12345</span><span class="order-status">Picked up at 10:45 AM</span></div>
+        <div class="card" style="margin-bottom:14px;">
+          <div class="row"><span class="label">Delivery Address</span></div>
+          <div class="row"><span class="value" style="text-align:left;">Rahul Kumar<br>Yamuna Apartment, 150115768, Ranchi Jharkhand</span></div>
+        </div>
+        <div class="card" style="margin-bottom:14px;">
+          <div class="row"><span class="label">Payment Mode</span><span id="payPill"></span></div>
+          <div class="row"><span class="label" id="collectLabel">Collect ₹450.00 from customer</span></div>
+        </div>
+      </div>
+      <div class="footer-actions" style="flex-direction:column;">
+        <button class="btn btn-blue-soft" style="margin-bottom:4px;" onclick="alert('Opening turn-by-turn navigation…')">🧭 Navigation</button>
+        <div class="slide-confirm tone-green" id="reachedBtn" data-target="delivery-verification.html?mode=cod">
+          <div class="slide-confirm-handle"></div>
+          <span class="slide-confirm-label">Slide — Reached at Customer</span>
+        </div>
+      </div>
+    </section>
+</div>
+
+<script src="app.js"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    lucide.createIcons();  const mode = getParam('mode', 'cod');
+  document.getElementById('payPill').innerHTML = pillHTML(mode);
+  document.getElementById('collectLabel').textContent = mode === 'cod' ? 'Collect ₹450.00 from customer' : 'Customer has paid online';
+  document.getElementById('reachedBtn').setAttribute('data-target', withMode('delivery-verification.html', mode));
+</script>
+</body>
+</html>

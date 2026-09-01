@@ -1,75 +1,110 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>RiderFlow — New Order Request</title>
-<meta name="description" content="Incoming order alert with trip distance, pickup restaurant details and a swipe-to-accept action." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
-<link rel="stylesheet" href="../assets/css/rider.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Order — Rider App</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-
-
   <div class="main">
-<div class="phone">
 
-
-  <div class="screen screen-center">
-    <div class="deny-row">
-      <a href="/pages/rider.html" class="pill danger deny-link" data-countdown data-seconds="18">✕ Deny · 18s</a>
-    </div>
-
-    <div class="map circle mt3">
-      <svg class="route" viewBox="0 0 320 320"><path d="M40 290 C 90 250, 70 190, 130 170 S 210 140, 230 60" stroke="oklch(0.55 0.19 255)" stroke-width="7" fill="none" opacity=".25" stroke-linecap="round"/><path d="M40 290 C 90 250, 70 190, 130 170 S 210 140, 230 60" stroke="oklch(0.55 0.19 255)" stroke-width="3.5" fill="none" stroke-dasharray="10 12" stroke-linecap="round"/></svg>
-      <span class="pin l70 t42"><i><b></b></i></span>
-      <span class="pin success l34 t82"><i><b></b></i></span>
-    </div>
-
-    <h2 class="big mt4">New order!</h2>
-
-    <div class="card p mt4 w-full">
-      <p class="muted ta-center">Trip distance <b class="card-strong">4.6 km</b></p>
-      <div class="grid2 mt3">
-        <div class="chip"><span>Pickup</span><b>0.2 km</b></div>
-        <div class="chip"><span>Drop</span><b>4.4 km</b></div>
+    <section class="screen" id="screen-neworder">
+      <div class="topbar">
+        <a class="icon-btn" href="home.html"><i data-lucide="arrow-left"></i>
+        </a>
+        <h2>New Order</h2>
+        <a class="reject-link" href="home.html">Reject</a>
       </div>
-    </div>
+      <div class="body-scroll">
+        <div class="wrap_time accept-timer">
+          <i data-lucide="clock"></i>
 
-    <div class="card p mt3 w-full">
-      <p class="label">Pickup from</p>
-      <p class="title mt2">Rasoi Ghar</p>
-      <p class="muted">Main road Hinoo Chowk Ranchi, Jharkhand 834001</p>
-      <p class="mt3 row info-note">
-        <svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        2 mins away
-      </p>
-    </div>
-    <div class="grow"></div>
+          <div class="" id="acceptTimer">Accept in 25 sec</div>
+        </div>
+
+        <div class="stop-card">
+          <div class="pick">
+            <i data-lucide="chef-hat"></i>
+          </div>
+          <div class="stop-info">
+            <div class="stop-label">Pickup from</div>
+            <div class="stop-name">Rasoi Ghar</div>
+            <div class="stop-addr">Main road, Hinoo Chowk, Ranchi, Jharkhand</div>
+          </div>
+          <div class="stop-dist">4.8 KM</div>
+        </div>
+        <!-- 
+        <div class="stop-card">
+          <div class="pick">
+
+            <i data-lucide="map-pin"></i>
+          </div>
+          <div class="stop-info">
+            <div class="stop-label">Deliver to</div>
+            <div class="stop-name">Rahul Kumar</div>
+            <div class="stop-addr">Yamuna Apartment, 150115768, Ranchi, Jharkhand, 834002</div>
+          </div>
+          <div class="stop-dist">5.2 KM</div>
+        </div> -->
+
+        <div class="card payment-card">
+          <div class="row">
+            <span class="label">
+              <i data-lucide="info"></i>
+              Payment Information</span>
+            <span id="payPill"></span>
+          </div>
+          <div class="row"><span class="label"> <i data-lucide="indian-rupee"></i>
+              Order Amount</span><span class="value">₹450.00</span></div>
+          <div class="row"><span class="label">  <i data-lucide="hand-coins"></i>  
+
+             <span  id="collectLabel"> Collect from customer </span></span><span class="value" id="collectValue">₹450.00</span></div>
+        </div>
+
+        <div class="earn-strip">
+          <span class="label">Your Earning</span>
+          <span class="value">₹45.00</span>
+        </div>
+      </div>
+      <div class="footer-actions">
+        <div class="slide-confirm tone-orange" id="acceptBtn" data-target="navigation-to-restaurant.html?mode=cod">
+          <div class="slide-confirm-handle"></div>
+          <span class="slide-confirm-label">Slide to accept order</span>
+        </div>
+      </div>
+    </section>
   </div>
 
-  <div class="cta-wrap">
-    <div class="swipe" data-next="/pages/reach-pickup.html" data-done="Order accepted">
-      <div class="fillbar"></div>
-      <div class="txt">Accept order</div>
-      <div class="knob"><svg class="ic" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></div>
-    </div>
-  </div>
-</div>
-</div>
 
-<!-- <nav class="steps">
-  <a href="/pages/index.html">01 Orders</a>
-  <a href="/pages/new-order.html" class="here">02 New order</a>
-  <a href="/pages/reach-pickup.html">03 Reach pickup</a>
-  <a href="/rider/pick-order.html">04 Pick order</a>
-  <a href="/rider/reach-drop.html">05 Reach drop</a>
-  <a href="/rider/delivered.html">06 Deliver</a>
-</nav> -->
+  <script src="app.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
 
-<script src="../assets/js/rider.js"></script>
+  <script>
+    lucide.createIcons();
 
+    const mode = getParam('mode', 'cod');
+
+    document.getElementById('payPill').innerHTML = pillHTML(mode);
+    document.getElementById('collectLabel').textContent = mode === 'cod' ? 'Collect from customer' : 'Customer Already Paid';
+    document.getElementById('collectValue').textContent = mode === 'cod' ? '₹450.00' : '₹0.00';
+    document.getElementById('acceptBtn').setAttribute('data-target', withMode('navigation-to-restaurant.html', mode));
+
+    // countdown — auto-reject back to home if it runs out
+    let seconds = 25;
+    const timerEl = document.getElementById('acceptTimer');
+    const timer = setInterval(() => {
+      seconds--;
+      if (seconds <= 0) {
+        clearInterval(timer);
+        window.location.href = 'home.html';
+        return;
+      }
+      timerEl.textContent = 'Accept in ' + seconds + ' sec';
+    }, 1000);
+  </script>
 </body>
+
 </html>
