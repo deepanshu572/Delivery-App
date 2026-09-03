@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Orders — Rider App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="main">
+    <section class="screen" id="screen-my-orders">
+      <div class="orders-topbar">
+        <a class="menu-icon" href="home.html">☰</a>
+        <h2>My Orders</h2>
+        <span class="bell">🔔</span>
+      </div>
+
+      <div class="tabs">
+        <button class="tab active" data-tab="active" onclick="switchTab('active')">Active</button>
+        <button class="tab" data-tab="neworders" onclick="switchTab('neworders')">New Orders</button>
+        <button class="tab" data-tab="completed" onclick="switchTab('completed')">Completed</button>
+      </div>
+
+      <div class="body-scroll my-order">
+        <div class="orders-body">
+
+          <!-- ============ ACTIVE ============ -->
+          <div class="tab-panel active" id="panel-active">
+            <div class="section-title">Active Delivery (2)</div>
+
+            <div class="order-card">
+              <div class="order-card-top">
+                <span class="status-chip ontheway">ON THE WAY</span>
+                <span class="order-id">Order ID #12345</span>
+              </div>
+
+              <div class="stop-line">
+                <div class="stop-dot pickup">🍴</div>
+                <div class="stop-info">
+                  <div class="stop-label">PICKUP FROM</div>
+                  <div class="stop-name">Rasoi Ghar</div>
+                  <div class="stop-addr">Main road Hinoo Chowk, Ranchi Jharkhand, 834001</div>
+                </div>
+                <span class="call-icon">📞</span>
+              </div>
+              <div class="stop-line">
+                <div class="stop-dot drop">📍</div>
+                <div class="stop-info">
+                  <div class="stop-label">DELIVER TO</div>
+                  <div class="stop-name">Rahul Kumar</div>
+                  <div class="stop-addr">Yamuna Apartment, 150115768, Ranchi Jharkhand, 834002</div>
+                </div>
+                <span class="call-icon">📞</span>
+              </div>
+
+              <div class="meta-row">
+                <span>📍 Distance <span class="value-dark">4.8 KM</span></span>
+                <span>🕒 Estimated Time <span class="value-dark">18 min</span></span>
+              </div>
+
+              <div class="payment-box cod">
+                <div class="row"><span class="pill pill-cod">💵 Cash On Delivery (COD)</span></div>
+                <div class="row"><span class="label">Order Amount</span><span class="value">₹450.00</span></div>
+                <div class="row"><span class="label">Collect from customer</span><span class="value">₹450.00</span></div>
+              </div>
+
+              <div class="earning-row">
+                <span class="label">Your Earning</span>
+                <span class="value text-green">₹45.00</span>
+              </div>
+
+              <div class="slide-confirm tone-green" data-target="navigation-to-customer.html?mode=cod">
+                <div class="slide-confirm-handle"></div>
+                <span class="slide-confirm-label">Continue Delivery</span>
+              </div>
+            </div>
+
+            <div class="order-card">
+              <div class="order-card-top">
+                <span class="status-chip ontheway">ON THE WAY</span>
+                <span class="order-id">Order ID #12345</span>
+              </div>
+
+              <div class="stop-line">
+                <div class="stop-dot pickup">🍴</div>
+                <div class="stop-info">
+                  <div class="stop-label">PICKUP FROM</div>
+                  <div class="stop-name">Rasoi Ghar</div>
+                  <div class="stop-addr">Main road Hinoo Chowk, Ranchi Jharkhand, 834001</div>
+                </div>
+                <span class="call-icon">📞</span>
+              </div>
+              <div class="stop-line">
+                <div class="stop-dot drop">📍</div>
+                <div class="stop-info">
+                  <div class="stop-label">DELIVER TO</div>
+                  <div class="stop-name">Rahul Kumar</div>
+                  <div class="stop-addr">Yamuna Apartment, 150115768, Ranchi Jharkhand, 834002</div>
+                </div>
+                <span class="call-icon">📞</span>
+              </div>
+
+              <div class="meta-row">
+                <span>📍 Distance <span class="value-dark">4.8 KM</span></span>
+                <span>🕒 Estimated Time <span class="value-dark">16 min</span></span>
+              </div>
+
+              <div class="payment-box online">
+                <div class="row"><span class="pill pill-online">✅ Online Paid</span></div>
+                <div class="row"><span class="label">Order Amount</span><span class="value">₹450.00</span></div>
+                <div class="row"><span class="label">Customer Already Paid</span><span class="value">₹00.00</span></div>
+              </div>
+
+              <div class="earning-row">
+                <span class="label">Your Earning</span>
+                <span class="value text-green">₹45.00</span>
+              </div>
+
+              <div class="slide-confirm tone-green" data-target="navigation-to-customer.html?mode=online">
+                <div class="slide-confirm-handle"></div>
+                <span class="slide-confirm-label">Continue Delivery</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ============ NEW ORDERS ============ -->
+          <div class="tab-panel" id="panel-neworders">
+            <div class="section-title">New Order (3)</div>
+
+            <div class="order-card">
+              <div class="order-card-top">
+                <span class="status-chip timer">Accept within<br>00:25</span>
+                <span class="order-id">Order ID #12345</span>
+              </div>
+
+              <div class="stop-line">
+                <div class="stop-dot pickup">🍴</div>
+                <div class="stop-info">
+                  <div class="stop-label">PICKUP FROM</div>
+                  <div class="stop-name">Rasoi Ghar</div>
+                  <div class="stop-addr">Main road Hinoo Chowk, Ranchi Jharkhand, 834001</div>
+                </div>
+                <span class="call-icon">📞</span>
+              </div>
+              <div class="stop-line">
+                <div class="stop-dot drop">📍</div>
+                <div class="stop-info">
+                  <div class="stop-label">DELIVER TO</div>
+                  <div class="stop-name">Rahul Kumar</div>
+                  <div class="stop-addr">Yamuna Apartment, 150115768, Ranchi Jharkhand, 834002</div>
+                </div>
+                <span class="call-icon">📞</span>
+              </div>
+
+              <div class="meta-row">
+                <span>📍 Distance <span class="value-dark">4.8 KM</span></span>
+                <span>🕒 Estimated Time <span class="value-dark">18 min</span></span>
+              </div>
+
+              <div class="payment-box cod">
+                <div class="row"><span class="pill pill-cod">💵 Cash On Delivery (COD)</span></div>
+                <div class="row"><span class="label">Order Amount</span><span class="value">₹450.00</span></div>
+                <div class="row"><span class="label">Collect from customer</span><span class="value">₹450.00</span></div>
+              </div>
+
+              <div class="earning-row">
+                <span class="label">Your Earning</span>
+                <span class="value text-green">₹45.00</span>
+              </div>
+
+              <div class="dual-actions">
+                <button class="btn btn-reject" onclick="rejectOrder(this)">Reject</button>
+                <a class="btn btn-accept" href="new-order.html?mode=cod">Accept Order</a>
+              </div>
+            </div>
+
+            <div class="order-card">
+              <div class="order-card-top">
+                <span class="status-chip timer">Accept within<br>00:30</span>
+                <span class="order-id">Order ID #12345</span>
+              </div>
+
+              <div class="stop-line">
+                <div class="stop-dot pickup">🍴</div>
+                <div class="stop-info">
+                  <div class="stop-label">PICKUP FROM</div>
+                  <div class="stop-name">Rasoi Ghar</div>
+                  <div class="stop-addr">Main road Hinoo Chowk, Ranchi Jharkhand, 834001</div>
+                </div>
+                <span class="call-icon">📞</span>
+              </div>
+              <div class="stop-line">
+                <div class="stop-dot drop">📍</div>
+                <div class="stop-info">
+                  <div class="stop-label">DELIVER TO</div>
+                  <div class="stop-name">Rahul Kumar</div>
+                  <div class="stop-addr">Yamuna Apartment, 150115768, Ranchi Jharkhand, 834002</div>
+                </div>
+                <span class="call-icon">📞</span>
+              </div>
+
+              <div class="meta-row">
+                <span>📍 Distance <span class="value-dark">4.8 KM</span></span>
+                <span>🕒 Estimated Time <span class="value-dark">16 min</span></span>
+              </div>
+
+              <div class="payment-box online">
+                <div class="row"><span class="pill pill-online">✅ Online Paid</span></div>
+                <div class="row"><span class="label">Order Amount</span><span class="value">₹450.00</span></div>
+                <div class="row"><span class="label">Customer Already Paid</span><span class="value">₹00.00</span></div>
+              </div>
+
+              <div class="earning-row">
+                <span class="label">Your Earning</span>
+                <span class="value text-green">₹45.00</span>
+              </div>
+
+              <div class="dual-actions">
+                <button class="btn btn-reject" onclick="rejectOrder(this)">Reject</button>
+                <a class="btn btn-accept" href="new-order.html?mode=online">Accept Order</a>
+              </div>
+            </div>
+
+            <div class="order-card">
+              <div class="order-card-top">
+                <span class="status-chip timer">Accept within<br>00:25</span>
+                <span class="order-id">Order ID #12345</span>
+              </div>
+
+              <div class="stop-line">
+                <div class="stop-dot pickup">🍴</div>
+                <div class="stop-info">
+                  <div class="stop-label">PICKUP FROM</div>
+                  <div class="stop-name">Rasoi Ghar</div>
+                  <div class="stop-addr">Main road Hinoo Chowk, Ranchi Jharkhand, 834001</div>
+                </div>
+                <span class="call-icon">📞</span>
+              </div>
+              <div class="stop-line">
+                <div class="stop-dot drop">📍</div>
+                <div class="stop-info">
+                  <div class="stop-label">DELIVER TO</div>
+                  <div class="stop-name">Rahul Kumar</div>
+                  <div class="stop-addr">Yamuna Apartment, 150115768, Ranchi Jharkhand, 834002</div>
+                </div>
+                <span class="call-icon">📞</span>
+              </div>
+
+              <div class="meta-row">
+                <span>📍 Distance <span class="value-dark">4.8 KM</span></span>
+                <span>🕒 Estimated Time <span class="value-dark">20 min</span></span>
+              </div>
+
+              <div class="payment-box cod">
+                <div class="row"><span class="pill pill-cod">💵 Cash On Delivery (COD)</span></div>
+                <div class="row"><span class="label">Order Amount</span><span class="value">₹450.00</span></div>
+                <div class="row"><span class="label">Collect from customer</span><span class="value">₹450.00</span></div>
+              </div>
+
+              <div class="earning-row">
+                <span class="label">Your Earning</span>
+                <span class="value text-green">₹45.00</span>
+              </div>
+
+              <div class="dual-actions">
+                <button class="btn btn-reject" onclick="rejectOrder(this)">Reject</button>
+                <a class="btn btn-accept" href="new-order.html?mode=cod">Accept Order</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- ============ COMPLETED ============ -->
+          <div class="tab-panel" id="panel-completed">
+            <div class="filters-row">
+              <div class="filter-select">Today <span>▾</span></div>
+              <div class="filter-select">All Orders <span>▾</span></div>
+            </div>
+
+            <div class="section-title">Completed Orders</div>
+
+            <div class="completed-item">
+              <div class="completed-item-top">
+                <span class="order-id">Order ID #12345</span>
+                <span class="time">Today, 02:30 PM<span class="completed-status">Delivered ✓</span></span>
+              </div>
+              <div class="completed-route">
+                <span class="names">Rasoi Ghar <span class="arrow">→</span> Rahul Kumar</span>
+                <span class="pill pill-online">✅ Online Paid</span>
+              </div>
+              <div class="completed-foot">
+                <span><span class="label">Collected </span><span class="val">₹00.00</span></span>
+                <span><span class="label">Earning </span><span class="val green">₹45.00</span></span>
+              </div>
+            </div>
+
+            <div class="completed-item">
+              <div class="completed-item-top">
+                <span class="order-id">Order ID #12344</span>
+                <span class="time">Today, 01:15 PM<span class="completed-status">Delivered ✓</span></span>
+              </div>
+              <div class="completed-route">
+                <span class="names">Rasoi Ghar <span class="arrow">→</span> Rahul Kumar</span>
+                <span class="pill pill-cod">💵 Cash On Delivery</span>
+              </div>
+              <div class="completed-foot">
+                <span><span class="label">Collected </span><span class="val">₹450.00</span></span>
+                <span><span class="label">Earning </span><span class="val green">₹45.00</span></span>
+              </div>
+            </div>
+
+            <div class="completed-item">
+              <div class="completed-item-top">
+                <span class="order-id">Order ID #12343</span>
+                <span class="time">Today, 12:30 PM<span class="completed-status">Delivered ✓</span></span>
+              </div>
+              <div class="completed-route">
+                <span class="names">Rasoi Ghar <span class="arrow">→</span> Rahul Kumar</span>
+                <span class="pill pill-online">✅ Online Paid</span>
+              </div>
+              <div class="completed-foot">
+                <span><span class="label">Collected </span><span class="val">₹00.00</span></span>
+                <span><span class="label">Earning </span><span class="val green">₹45.00</span></span>
+              </div>
+            </div>
+
+            <div class="completed-item">
+              <div class="completed-item-top">
+                <span class="order-id">Order ID #12342</span>
+                <span class="time">Today, 11:45 AM<span class="completed-status">Delivered ✓</span></span>
+              </div>
+              <div class="completed-route">
+                <span class="names">Rasoi Ghar <span class="arrow">→</span> Rahul Kumar</span>
+                <span class="pill pill-cod">💵 Cash On Delivery</span>
+              </div>
+              <div class="completed-foot">
+                <span><span class="label">Collected </span><span class="val">₹450.00</span></span>
+                <span><span class="label">Earning </span><span class="val green">₹45.00</span></span>
+              </div>
+            </div>
+
+            <div class="completed-item">
+              <div class="completed-item-top">
+                <span class="order-id">Order ID #12341</span>
+                <span class="time">Today, 11:30 AM<span class="completed-status">Delivered ✓</span></span>
+              </div>
+              <div class="completed-route">
+                <span class="names">Rasoi Ghar <span class="arrow">→</span> Rahul Kumar</span>
+                <span class="pill pill-online">✅ Online Paid</span>
+              </div>
+              <div class="completed-foot">
+                <span><span class="label">Collected </span><span class="val">₹00.00</span></span>
+                <span><span class="label">Earning </span><span class="val green">₹45.00</span></span>
+              </div>
+            </div>
+
+            <div class="completed-item">
+              <div class="completed-item-top">
+                <span class="order-id">Order ID #12340</span>
+                <span class="time">Today, 10:15 AM<span class="completed-status">Delivered ✓</span></span>
+              </div>
+              <div class="completed-route">
+                <span class="names">Rasoi Ghar <span class="arrow">→</span> Rahul Kumar</span>
+                <span class="pill pill-cod">💵 Cash On Delivery</span>
+              </div>
+              <div class="completed-foot">
+                <span><span class="label">Collected </span><span class="val">₹450.00</span></span>
+                <span><span class="label">Earning </span><span class="val green">₹45.00</span></span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    function switchTab(name){
+      document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === name));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('panel-' + name).classList.add('active');
+    }
+
+    function rejectOrder(btn){
+      const card = btn.closest('.order-card');
+      card.style.transition = 'opacity .25s ease, transform .25s ease';
+      card.style.opacity = '0';
+      card.style.transform = 'translateX(-24px)';
+      setTimeout(() => card.remove(), 240);
+    }
+  </script>
+</body>
+
+</html>

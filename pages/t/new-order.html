@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Order — Rider App</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="main">
+
+  <section class="screen" id="screen-neworder">
+    <div class="topbar">
+      <a class="icon-btn" href="home.html">←</a>
+      <h2>New Order</h2>
+      <a class="reject-link" href="home.html">Reject</a>
+    </div>
+    <div class="body-scroll">
+      <div class="accept-timer" id="acceptTimer">Accept in 25 sec</div>
+
+      <div class="stop-card">
+        <div class="stop-dot pickup">🍴</div>
+        <div class="stop-info">
+          <div class="stop-label">Pickup from</div>
+          <div class="stop-name">Rasoi Ghar</div>
+          <div class="stop-addr">Main road, Hinoo Chowk, Ranchi, Jharkhand</div>
+        </div>
+        <div class="stop-dist">4.8 KM</div>
+      </div>
+
+      <div class="stop-card">
+        <div class="stop-dot drop">📍</div>
+        <div class="stop-info">
+          <div class="stop-label">Deliver to</div>
+          <div class="stop-name">Rahul Kumar</div>
+          <div class="stop-addr">Yamuna Apartment, 150115768, Ranchi, Jharkhand, 834002</div>
+        </div>
+        <div class="stop-dist">5.2 KM</div>
+      </div>
+
+      <div class="card payment-card">
+        <div class="row">
+          <span class="label">Payment Information</span>
+          <span id="payPill"></span>
+        </div>
+        <div class="row"><span class="label">Order Amount</span><span class="value">₹450.00</span></div>
+        <div class="row"><span class="label" id="collectLabel">Collect from customer</span><span class="value" id="collectValue">₹450.00</span></div>
+      </div>
+
+      <div class="earn-strip">
+        <span class="label">Your Earning</span>
+        <span class="value">₹45.00</span>
+      </div>
+    </div>
+    <div class="footer-actions">
+      <div class="slide-confirm tone-orange" id="acceptBtn" data-target="navigation-to-restaurant.html?mode=cod">
+        <div class="slide-confirm-handle"></div>
+        <span class="slide-confirm-label">Slide to accept order</span>
+      </div>
+    </div>
+  </section>
+</div>
+  
+
+<script src="app.js"></script>
+<script>
+  const mode = getParam('mode', 'cod');
+
+  document.getElementById('payPill').innerHTML = pillHTML(mode);
+  document.getElementById('collectLabel').textContent = mode === 'cod' ? 'Collect from customer' : 'Customer Already Paid';
+  document.getElementById('collectValue').textContent = mode === 'cod' ? '₹450.00' : '₹0.00';
+  document.getElementById('acceptBtn').setAttribute('data-target', withMode('navigation-to-restaurant.html', mode));
+
+  // countdown — auto-reject back to home if it runs out
+  let seconds = 25;
+  const timerEl = document.getElementById('acceptTimer');
+  const timer = setInterval(() => {
+    seconds--;
+    if(seconds <= 0){
+      clearInterval(timer);
+      window.location.href = 'home.html';
+      return;
+    }
+    timerEl.textContent = 'Accept in ' + seconds + ' sec';
+  }, 1000);
+</script>
+</body>
+</html>

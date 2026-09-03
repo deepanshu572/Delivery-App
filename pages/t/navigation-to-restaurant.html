@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Navigation to Restaurant — Rider App</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="main">
+  <div class="topbar">
+    <a class="icon-btn" href="home.html">←</a>
+    <h2>Navigation to Restaurant</h2>
+    <button class="help-link">Help</button>
+  </div>
+     <section class="screen" id="screen-nav-restaurant">
+      <div class="map-wrap">
+        <div class="map-badge">📍 PICKUP LOCATION</div>
+        <svg viewBox="0 0 375 300" preserveAspectRatio="none">
+          <rect width="375" height="300" fill="#E6EAEE"/>
+          <path d="M0 60 H375 M0 130 H375 M0 210 H375" stroke="#D7DCE2" stroke-width="2"/>
+          <path d="M70 0 V300 M220 0 V300 M300 0 V300" stroke="#D7DCE2" stroke-width="2"/>
+          <path d="M60 250 C 100 190, 150 160, 190 120 S 260 60, 290 40" stroke="#2D7FF9" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <circle cx="60" cy="250" r="7" fill="#2D7FF9" stroke="#fff" stroke-width="3"/>
+          <g transform="translate(278,26)">
+            <path d="M12 0C5.4 0 0 5.4 0 12c0 9 12 22 12 22s12-13 12-22c0-6.6-5.4-12-12-12Z" fill="#F1592A"/>
+            <circle cx="12" cy="12" r="5" fill="#fff"/>
+          </g>
+        </svg>
+      </div>
+      <div class="map-sheet">
+        <div class="drag-handle"></div>
+        <div class="map-meta-row"><span class="order-id">Order ID #12345</span><span class="order-status">Order Accepted · 10:30 AM</span></div>
+        <div class="map-note">Reach the restaurant to pick up the order</div>
+        <div class="stop-card mb-14">
+          <div class="stop-dot pickup">🍴</div>
+          <div class="stop-info">
+            <div class="stop-label">Pickup from</div>
+            <div class="stop-name">Rasoi Ghar</div>
+          </div>
+        </div>
+        <div class="card mb-14">
+          <div class="row"><span class="label">Payment Mode</span><span id="payPill"></span></div>
+          <div class="row"><span class="label" id="collectLabel">Collect ₹450.00 from customer</span></div>
+        </div>
+      </div>
+      <div class="footer-actions flex-col">
+        <button class="btn btn-blue-soft mb-4" onclick="alert('Opening turn-by-turn navigation…')">🧭 Navigation</button>
+        <div class="slide-confirm tone-green" id="reachedBtn" data-target="confirm-pickup.html?mode=cod">
+          <div class="slide-confirm-handle"></div>
+          <span class="slide-confirm-label">Slide — Reached at Restaurant</span>
+        </div>
+      </div>
+    </section>
+</div>
+
+<script src="app.js"></script>
+<script>
+  const mode = getParam('mode', 'cod');
+  document.getElementById('payPill').innerHTML = pillHTML(mode);
+  document.getElementById('collectLabel').textContent = mode === 'cod' ? 'Collect ₹450.00 from customer' : 'Customer has paid online';
+  document.getElementById('reachedBtn').setAttribute('data-target', withMode('confirm-pickup.html', mode));
+</script>
+</body>
+</html>

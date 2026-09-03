@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Collect Cash — Rider App</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="main">
+  
+  <section class="screen" id="screen-collect-cash">
+    <div class="topbar">
+      <a class="icon-btn" href="home.html">←</a>
+      <h2>Collect Cash</h2>
+      <button class="help-link">Help</button>
+    </div>
+    <div class="body-scroll">
+    <div class="handoff-illustration">
+<img src="../assets/img/icon/delivery.png" alt="">
+<img src="../../assets/img/icon/delivery.png" alt="">
+      </div>
+      <div class="cash-title">Collect cash from customer</div>
+      <div class="cash-amount">₹450.00</div>
+  
+      <div class="amount-input-label">Enter collected amount</div>
+      <input class="amount-input" id="cashAmountInput" type="text" value="₹ 450.00">
+  
+      <div class="warn-note">
+        <span>⚠️</span>
+        <span>Please collect exact amount from the customer</span>
+      </div>
+    </div>
+    <div class="footer-actions">
+      <div class="slide-confirm tone-orange" id="confirmCashBtn" data-target="delivery-completed.html?mode=cod">
+        <div class="slide-confirm-handle"></div>
+        <span class="slide-confirm-label">Slide — Cash Collected</span>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+
+<script src="app.js"></script>
+<script>
+  const mode = getParam('mode', 'cod');
+  document.getElementById('confirmCashBtn').setAttribute('data-target', withMode('delivery-completed.html', mode));
+</script>
+</body>
+</html>
