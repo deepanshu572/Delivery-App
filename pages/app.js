@@ -1,5 +1,4 @@
-
-    // ---- shared helpers used across every page ----
+// ---- shared helpers used across every page ----
 function getParam(name, fallback){
   const params = new URLSearchParams(window.location.search);
   return params.get(name) || fallback;
@@ -41,16 +40,17 @@ function initSlideConfirm(el){
   if(!handle) return;
 
   let dragging = false;
+  let moved = false;
   let startClientX = 0;
   let startLeft = 0;
   let currentX = 0;
 
   function maxX(){
-    return el.clientWidth - handle.offsetWidth - 8; // 8 = container padding (4px each side)
+    return Math.max(el.clientWidth - handle.offsetWidth - 8, 0); // 8 = container padding (4px each side)
   }
 
   function place(x){
-    const max = Math.max(maxX(), 0);
+    const max = maxX();
     currentX = Math.min(Math.max(x, 0), max);
     handle.style.transform = 'translateX(' + currentX + 'px)';
     if(label){
@@ -60,41 +60,77 @@ function initSlideConfirm(el){
     return max;
   }
 
+  function complete(){
+    el.classList.add('completed', 'disabled');
+    const target = el.getAttribute('data-target');
+    const onComplete = el.getAttribute('data-oncomplete');
+    setTimeout(() => {
+      if(onComplete && typeof window[onComplete] === 'function'){
+        window[onComplete](el);
+      } else if(target){
+        window.location.href = target;
+      }
+    }, 220);
+  }
+
+  // used both for a plain click/tap and for a drag that didn't quite reach the end —
+  // finishes the motion automatically instead of leaving it half-slid.
+  function autoFinish(fromZero){
+    if(el.classList.contains('disabled')) return;
+    el.classList.add('disabled');
+    handle.style.transition = 'transform .32s cubic-bezier(.22,.8,.24,1)';
+    if(fromZero) place(0);
+    requestAnimationFrame(() => {
+      const max = place(el.clientWidth); // clamps to real max internally
+      complete();
+    });
+  }
+
   function onPointerDown(e){
     if(el.classList.contains('disabled') || el.classList.contains('completed')) return;
     dragging = true;
+    moved = false;
     startClientX = e.clientX;
     startLeft = currentX;
+    handle.style.transition = 'none';
     el.classList.add('dragging');
     handle.setPointerCapture(e.pointerId);
   }
 
   function onPointerMove(e){
     if(!dragging) return;
+    if(Math.abs(e.clientX - startClientX) > 4) moved = true;
     place(startLeft + (e.clientX - startClientX));
   }
 
-  function onPointerUp(e){
+  function onPointerUp(){
     if(!dragging) return;
     dragging = false;
     el.classList.remove('dragging');
+
+    if(!moved){
+      // a plain tap/click on the handle — slide it the rest of the way automatically
+      autoFinish(false);
+      return;
+    }
+
     const max = place(currentX);
     if(max <= 0 || currentX >= max * 0.78){
+      handle.style.transition = 'transform .15s ease';
       place(max);
-      el.classList.add('completed', 'disabled');
-      const target = el.getAttribute('data-target');
-      const onComplete = el.getAttribute('data-oncomplete');
-      setTimeout(() => {
-        if(onComplete && typeof window[onComplete] === 'function'){
-          window[onComplete](el);
-        } else if(target){
-          window.location.href = target;
-        }
-      }, 200);
+      complete();
     } else {
+      handle.style.transition = 'transform .25s cubic-bezier(.3,.8,.4,1)';
       place(0);
     }
   }
+
+  // clicking anywhere on the track (not just the handle) also triggers the slide + navigate
+  el.addEventListener('click', (e) => {
+    if(el.classList.contains('disabled') || el.classList.contains('completed')) return;
+    if(e.target.closest('.slide-confirm-handle')) return; // already handled by pointerup above
+    autoFinish(true);
+  });
 
   handle.addEventListener('pointerdown', onPointerDown);
   handle.addEventListener('pointermove', onPointerMove);

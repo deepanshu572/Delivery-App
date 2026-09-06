@@ -9,12 +9,12 @@
 <body>
 
 <div class="main">
-  <div class="topbar">
-    <a class="icon-btn" href="home.html">←</a>
-    <h2>Navigation to Customer</h2>
-    <button class="help-link">Help</button>
-  </div>
     <section class="screen" id="screen-nav-customer">
+      <div class="topbar">
+        <a class="icon-btn" href="home.html">←</a>
+        <h2>Navigation to Customer</h2>
+        <button class="help-link"><i data-lucide="headset"></i> Help</button>
+      </div>
       <div class="map-wrap">
         <div class="map-badge">🚴 ON THE WAY TO CUSTOMER</div>
         <svg viewBox="0 0 375 300" preserveAspectRatio="none">
@@ -32,17 +32,17 @@
       <div class="map-sheet">
         <div class="drag-handle"></div>
         <div class="map-meta-row"><span class="order-id">Order ID #12345</span><span class="order-status">Picked up at 10:45 AM</span></div>
-        <div class="card mb-14">
+        <div class="card" style="margin-bottom:14px;">
           <div class="row"><span class="label">Delivery Address</span></div>
-          <div class="row"><span class="value text-left">Rahul Kumar<br>Yamuna Apartment, 150115768, Ranchi Jharkhand</span></div>
+          <div class="row"><span class="value" style="text-align:left;">Rahul Kumar<br>Yamuna Apartment, 150115768, Ranchi Jharkhand</span></div>
         </div>
-        <div class="card mb-14">
+        <div class="card" style="margin-bottom:14px;">
           <div class="row"><span class="label">Payment Mode</span><span id="payPill"></span></div>
           <div class="row"><span class="label" id="collectLabel">Collect ₹450.00 from customer</span></div>
         </div>
       </div>
-      <div class="footer-actions flex-col">
-        <button class="btn btn-blue-soft mb-4" onclick="alert('Opening turn-by-turn navigation…')">🧭 Navigation</button>
+      <div class="footer-actions" style="flex-direction:column;">
+        <button class="btn btn-blue-soft" style="margin-bottom:4px;" onclick="alert('Opening turn-by-turn navigation…')">🧭 Navigation</button>
         <div class="slide-confirm tone-green" id="reachedBtn" data-target="delivery-verification.html?mode=cod">
           <div class="slide-confirm-handle"></div>
           <span class="slide-confirm-label">Slide — Reached at Customer</span>
@@ -52,8 +52,10 @@
 </div>
 
 <script src="app.js"></script>
-<script>
-  const mode = getParam('mode', 'cod');
+<script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    lucide.createIcons();  const mode = getParam('mode', 'cod');
   document.getElementById('payPill').innerHTML = pillHTML(mode);
   document.getElementById('collectLabel').textContent = mode === 'cod' ? 'Collect ₹450.00 from customer' : 'Customer has paid online';
   document.getElementById('reachedBtn').setAttribute('data-target', withMode('delivery-verification.html', mode));

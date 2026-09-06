@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RiderFlow — Personal Information</title>
+    <meta name="description"
+        content="Partner onboarding: fill in personal details, contact numbers, city, languages and profile photo." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
+    <link rel="stylesheet" href="../assets/css/rider.css" />
+    <link rel="stylesheet" href="../assets/css/onboarding.css" />
+  
+</head>
+
+<body>
+
+    <div class="main">
+        <div class="phone">
+
+            <div class="backbar">
+                <a href="onboarding-1.html" aria-label="Back">
+      <svg class="ic" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"></path></svg>
+    </a>
+                <span class="ob-heading">Emergency Details</span>
+            </div>
+
+            <div class="screen">
+                <form class="ob-body" onsubmit="handleEmergencyDetail(event);" style="padding-bottom:20px">
+                    <p class="ob-sub">
+                        Enter your emergency contact details so we can reach someone when needed
+                    </p>
+
+                    <!-- Contact Person Name -->
+                    <div class="field">
+                        <label>Contact Person Name</label>
+                        <input id="contactPersonName" type="text" placeholder="Enter contact person name" required>
+                    </div>
+
+                    <!-- Relationship -->
+                    <div class="field">
+                        <label>Relationship</label>
+                        <input id="relationship" type="text" placeholder="e.g. Father, Mother, Brother" required>
+                    </div>
+
+                    <!-- Mobile Number -->
+                    <div class="field">
+                        <label>Mobile Number</label>
+                        <input id="emergencyMobile" type="tel" placeholder="Enter mobile number" required>
+                    </div>
+
+                    <!-- Alternate Mobile Number -->
+                    <div class="field">
+                        <label>Alternate Mobile Number</label>
+                        <input id="alternateMobile" type="tel" placeholder="Enter alternate mobile number">
+                    </div>
+
+                    <!-- Address -->
+                    <div class="field">
+                        <label>Address</label>
+                        <textarea id="emergencyAddress" placeholder="Enter complete address here" required></textarea>
+                    </div>
+
+                    <!-- City -->
+                    <div class="field">
+                        <label>City</label>
+                        <input id="emergencyCity" type="text" placeholder="Enter city" required>
+                    </div>
+
+                    <button class="btn-primary w-full mt3" type="submit">
+                        Submit
+                    </button>
+
+                </form>
+            </div>
+        </div>
+
+
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="/assets/js/script.js"></script>
+    <script>
+        getEmergencyDetails();
+
+    </script>
+
+</body>

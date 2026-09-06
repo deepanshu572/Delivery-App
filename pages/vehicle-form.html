@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RiderFlow — Personal Information</title>
+  <meta name="description"
+    content="Partner onboarding: fill in personal details, contact numbers, city, languages and profile photo." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
+  <link rel="stylesheet" href="../assets/css/rider.css" />
+  <link rel="stylesheet" href="../assets/css/onboarding.css" />
+
+</head>
+
+<body>
+
+  <div class="main">
+
+
+<div class="phone">
+
+
+  <div class="backbar">
+    <a href="onboarding-1.html" aria-label="Back">
+      <svg class="ic" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"></path></svg>
+    </a>
+    <span class="ob-heading">Vehicle Details</span>
+  </div>
+
+  <div class="screen">
+    <form class="ob-body" onsubmit="handleVehicleInsert(event);" style="padding-bottom:20px">
+
+      <p class="ob-sub">
+        Enter your vehicle details and upload the required documents
+      </p>
+
+      <!-- Vehicle Type -->
+      <div class="field">
+        <label>Vehicle Type</label>
+        <select id="vehicleType" required>
+          <option value="">Select vehicle type</option>
+          <option value="Bike">Bike</option>
+          <option value="Scooter">Scooter</option>
+          <option value="Car">Car</option>
+          <option value="Auto">Auto</option>
+          <option value="Van">Van</option>
+          <option value="Truck">Truck</option>
+        </select>
+      </div>
+
+      <!-- Vehicle Number -->
+      <div class="field">
+        <label>Vehicle Number</label>
+        <input
+          id="vehicleNumber"
+          type="text"
+          placeholder="Enter vehicle number"
+          style="text-transform: uppercase;"
+          required
+        >
+      </div>
+
+      <!-- Vehicle Brand -->
+      <div class="field">
+        <label>Vehicle Brand</label>
+        <input
+          id="vehicleBrand"
+          type="text"
+          placeholder="e.g. Honda, TVS, Hero"
+          required
+        >
+      </div>
+
+      <!-- Vehicle Model -->
+      <div class="field">
+        <label>Vehicle Model</label>
+        <input
+          id="vehicleModel"
+          type="text"
+          placeholder="e.g. Activa 6G"
+          required
+        >
+      </div>
+
+      <!-- Vehicle Color -->
+      <div class="field">
+        <label>Vehicle Color</label>
+        <input
+          id="vehicleColor"
+          type="text"
+          placeholder="e.g. Black"
+          required
+        >
+      </div>
+
+      <!-- Registration Year -->
+      <div class="field">
+        <label>Registration Year</label>
+        <select id="registrationYear" required>
+          <option value="">Select registration year</option>
+        </select>
+      </div>
+
+
+      <button class="btn-primary w-full mt3" type="submit">
+        Submit
+      </button>
+
+    </form>
+  </div>
+</div>
+
+  </div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+     const yearSelect = document.getElementById("registrationYear");
+
+    const currentYear = new Date().getFullYear();
+
+    for (let year = currentYear; year >= 1990; year--) {
+        const option = document.createElement("option");
+
+        option.value = year;
+        option.textContent = year;
+
+        yearSelect.appendChild(option);
+    }
+  </script>
+
+  <script src="/assets/js/script.js"></script>
+  <script>
+
+    getVehicleDetails();
+  </script>
+</body>

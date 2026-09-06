@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RiderFlow — Aadhaar Card Upload</title>
+  <meta name="description" content="Upload front and back photos of your Aadhaar card for partner verification." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
+  <link rel="stylesheet" href="../assets/css/onboarding.css" />
+  <link rel="stylesheet" href="../assets/css/rider.css" />
+</head>
+
+<body>
+
+
+  <div class="phone">
+
+
+    <div class="backbar">
+      <input type="text" id="docName" hidden>
+      <a href="/pages/doc-1.html" aria-label="Back">
+        <svg class="ic" viewBox="0 0 24 24">
+          <path d="m15 18-6-6 6-6" />
+        </svg>
+      </a>
+      <span class="ob-heading"></span>
+    </div>
+
+    <div class="screen">
+      <form onsubmit="handleUploadDocument(event);" class="ob-body">
+        <p class="ob-sub">Upload focused photo of your Document for faster verification</p>
+
+        <div class="upload-box" data-upload-box>
+          <p class="hint">Front side photo of your Document with your clear name and photo</p>
+          <div class="upload-preview" id="frontImg"></div>
+
+          <label for="frontUpload" class="upload-btn">
+            <input type="file" hidden id="frontUpload">
+            <svg class="ic" viewBox="0 0 24 24">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <path d="m17 8-5-5-5 5M12 3v12" />
+            </svg>
+            Upload Photo
+          </label>
+        </div>
+
+        <div class="upload-box" data-upload-box>
+          <p class="hint">Back side photo of your Document with your clear name and photo</p>
+          <div class="upload-preview" id="backImg"></div>
+          <label for="backUpload" class="upload-btn">
+            <input type="file" hidden id="backUpload">
+            <svg class="ic" viewBox="0 0 24 24">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <path d="m17 8-5-5-5 5M12 3v12" />
+            </svg>
+            Upload Photo
+          </label>
+        </div>
+
+        <div class="grow"></div>
+        <button class="btn-primary w-full" id="docBtn" type="submit" style="margin-bottom:20px">Submit</button>
+      </form>
+    </div>
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="/assets/js/script.js"></script>
+
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+
+    const type = params.get("type");
+
+
+    if (type == "pan") {
+      $(".ob-heading").text("Pan card details");
+
+      $("#docName").val("Pan card");
+    } else if (type == 'aadhar') {
+      $(".ob-heading").text("Aadhar card details");
+      $("#docName").val("Aadhar card");
+    } else if (type == 'driving') {
+      $(".ob-heading").text("Driving Licence details");
+      $("#docName").val("Driving Licence");
+    } else {
+      alert("select your document");
+      location.href = 'doc-1.html';
+      $("#docName").val("");
+    }
+
+    // let img1 = false;
+    // let img2 = false;
+    $("#backUpload").on('change', function () {
+      let backImg = this.files[0];
+      let showImg = URL.createObjectURL(backImg);
+      $("#backImg").html(`<img src='${showImg}'/>`);
+      // img2 = true;
+      // activeSubmit();
+    });
+
+    $("#frontUpload").on('change', function () {
+      let frontImg = this.files[0];
+      let showImg = URL.createObjectURL(frontImg);
+      $("#frontImg").html(`<img src='${showImg}'/>`);
+      // img1 = true;
+      // activeSubmit();
+
+    });
+    // function activeSubmit() {
+    //   if (img1 == true && img2 == true) {
+    //     $("#docBtn").removeAttr("disabled");
+    //   }
+    // }
+getSelectedDoc()
+  </script>
+</body>
+
+</html>

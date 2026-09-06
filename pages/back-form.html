@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RiderFlow — Personal Information</title>
+  <meta name="description"
+    content="Partner onboarding: fill in personal details, contact numbers, city, languages and profile photo." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
+  <link rel="stylesheet" href="../assets/css/rider.css" />
+  <link rel="stylesheet" href="../assets/css/onboarding.css" />
+
+</head>
+
+<body>
+
+  <div class="main">
+<div class="phone">
+
+  <div class="backbar">
+    <a href="onboarding-1.html" aria-label="Back">
+      <svg class="ic" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"></path></svg>
+    </a>
+    <span class="ob-heading">Bank Account Details</span>
+  </div>
+
+  <div class="screen">
+    <form class="ob-body" onsubmit="handleBankInsert(event);" style="padding-bottom:20px">
+
+      <p class="ob-sub">
+        Enter your bank account details so we can process your payments
+      </p>
+
+      <!-- Account Holder Name -->
+      <div class="field">
+        <label>Account Holder Name</label>
+        <input
+          id="accountHolderName"
+          type="text"
+          placeholder="Enter account holder name"
+          required
+        >
+      </div>
+
+      <!-- Bank Name -->
+      <div class="field">
+        <label>Bank Name</label>
+        <input
+          id="bankName"
+          type="text"
+          placeholder="Enter bank name"
+          required
+        >
+      </div>
+
+      <!-- Account Number -->
+      <div class="field">
+        <label>Account Number</label>
+        <input
+          id="accountNumber"
+          type="text"
+          inputmode="numeric"
+          placeholder="Enter account number"
+          required
+        >
+      </div>
+
+      <!-- IFSC Code -->
+      <div class="field">
+        <label>IFSC Code</label>
+        <input
+          id="ifscCode"
+          type="text"
+          placeholder="e.g. SBIN0001234"
+          style="text-transform:uppercase;"
+          required
+        >
+      </div>
+
+      <!-- Branch Name -->
+      <div class="field">
+        <label>Branch Name</label>
+        <input
+          id="branchName"
+          type="text"
+          placeholder="Enter branch name"
+          required
+        >
+      </div>
+
+      <!-- Account Type -->
+      <div class="field">
+        <label>Account Type</label>
+        <select id="accountType" required>
+          <option value="">Select account type</option>
+          <option value="saving">Savings Account</option>
+          <option value="current">Current Account</option>
+        </select>
+      </div>
+
+      <!-- Bank Proof Image -->
+   
+
+      <button class="btn-primary w-full mt3" type="submit">
+        Submit
+      </button>
+
+    </form>
+  </div>
+</div>
+
+
+  </div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <script src="/assets/js/script.js"></script>
+  <script>
+    getBankDetails();
+
+  </script>
+</body>

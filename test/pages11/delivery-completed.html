@@ -11,10 +11,12 @@
 <div class="main">
 
   <section class="screen" id="screen-completed">
+   
     <div class="topbar">
-      <span></span>
+      <a class="icon-btn" href="home.html">←</a>
       <h2>Delivery Completed</h2>
-      <button class="help-link">Help</button>
+      <button class="help-link"><i data-lucide="headset"></i>  
+ Help</button>
     </div>
     <div class="body-scroll">
       <div class="completed-hero">
@@ -26,7 +28,7 @@
         <div class="row"><span class="label">Order Amount</span><span class="value">₹450.00</span></div>
         <div class="row"><span class="label">Payment Type</span><span id="payPill"></span></div>
         <div class="row"><span class="label">Cash Collected</span><span class="value" id="cashCollectedValue">₹450.00</span></div>
-        <div class="row"><span class="label">Rider Earning</span><span class="value text-green">₹45.00</span></div>
+        <div class="row"><span class="label">Rider Earning</span><span class="value" style="color:var(--green);">₹45.00</span></div>
       </div>
 
       <div class="completed-thanks">Thank you for completing the delivery.</div>
@@ -42,8 +44,11 @@
 
 
 <script src="app.js"></script>
-<script>
-  const mode = getParam('mode', 'cod');
+<script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    lucide.createIcons();
+      const mode = getParam('mode', 'cod');
   document.getElementById('payPill').innerHTML = pillHTML(mode);
   document.getElementById('cashCollectedValue').textContent = mode === 'cod' ? '₹450.00' : 'Already Paid';
 </script>

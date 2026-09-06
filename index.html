@@ -25,9 +25,9 @@
     
         <div class="ob-body">
           <p class="ob-title">Enter Mobile Number</p>
-          <form action="otp.html" method="get">
+          <form onsubmit="handleMobileNumberSubmit(event);" method="POST">
             <div class="field">
-              <input type="tel" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" placeholder="e.g. 1234567890" required aria-label="Mobile number" />
+              <input type="tel" class="phone_num" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" placeholder="e.g. 1234567890" required aria-label="Mobile number" />
             </div>
             <label class="check mt3">
               <input type="checkbox" required />
@@ -40,8 +40,10 @@
     </div>
 </div>
 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<script src="../assets/js/rider.js"></script>
+<script src="assets/js/auth.js"></script>
+
 </body>
 </html>
 

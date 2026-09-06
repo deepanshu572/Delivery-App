@@ -274,8 +274,17 @@
           <!-- ============ COMPLETED ============ -->
           <div class="tab-panel" id="panel-completed">
             <div class="filters-row">
-              <div class="filter-select">Today <span>▾</span></div>
-              <div class="filter-select">All Orders <span>▾</span></div>
+              <select name="timeframe" id="timeframe" class="filter-select">
+                <option value="today"> Today</option>
+                <option value="week">This Week</option>
+                <option value="month">This Month</option>
+              </select>
+             
+              <select class="filter-select" name="payment" id="payment">
+                <option value="all">All Payments</option>
+                <option value="cod">Cash On Delivery</option>
+                <option value="online">Online Paid</option>
+              </select>
             </div>
 
             <div class="section-title">Completed Orders</div>

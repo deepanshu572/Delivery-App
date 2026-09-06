@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home — Rider App</title>
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home — Rider App</title>
+<link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-  <div class="main">
+   <div class="main">
     <section class="screen" id="screen-home">
       <div class="body-scroll">
         <div class="greeting-card">
@@ -25,9 +23,7 @@
 
         <div class="toggle-card">
           <span class="status-text" id="dutyLabel">You're online</span>
-          <div class="switch" id="dutySwitch" onclick="toggleDuty()">
-            <div class="knob"></div>
-          </div>
+          <div class="switch" id="dutySwitch" onclick="toggleDuty()"><div class="knob"></div></div>
         </div>
 
         <div class="demo-mode-card">
@@ -38,7 +34,7 @@
           </div>
         </div>
 
-        <div class="earnings-card">
+       <div class="earnings-card">
           <div class="wrap">
 
             <div class="label">Today's Earnings</div>
@@ -49,18 +45,9 @@
         </div>
 
         <div class="stats-row">
-          <div class="stat-card">
-            <div class="stat-num">12</div>
-            <div class="stat-lbl">Completed</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-num">4.8 ⭐</div>
-            <div class="stat-lbl">Rating</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-num">95%</div>
-            <div class="stat-lbl">Acceptance</div>
-          </div>
+          <div class="stat-card"><div class="stat-num">12</div><div class="stat-lbl">Completed</div></div>
+          <div class="stat-card"><div class="stat-num">4.8 ⭐</div><div class="stat-lbl">Rating</div></div>
+          <div class="stat-card"><div class="stat-num">95%</div><div class="stat-lbl">Acceptance</div></div>
         </div>
 
         <div class="incentive-card">
@@ -71,51 +58,43 @@
           <div class="gift">🎁</div>
         </div>
 
-        <div class="wrap_track">
+              <div class="wrap_track">
 
           <a class="new-order-fab" id="newOrderBtn" href="new-order.html?mode=cod"><i data-lucide="volume-2"></i>
           </a>
           <h4>New Order</h4>
         </div>
       </div>
-        
-      <div class="bottom-nav">
-        <div class="nav-item active"><span class="ic"><i data-lucide="house"></i>
-          </span>Home</div>
-        <div class="nav-item"><span class="ic"><i data-lucide="package"></i>
-          </span>Orders</div>
-        <div class="nav-item"><span class="ic"><i data-lucide="circle-dollar-sign"></i>
 
-          </span>Earnings</div>
-        <div class="nav-item"><span class="ic"><i data-lucide="user"></i>
-          </span>Profile</div>
+      <div class="bottom-nav">
+        <div class="nav-item active"><span class="ic">🏠</span>Home</div>
+        <a class="nav-item" href="my-orders.html"><span class="ic">📦</span>Orders</a>
+        <div class="nav-item"><span class="ic">💰</span>Earnings</div>
+        <div class="nav-item"><span class="ic">👤</span>Profile</div>
       </div>
     </section>
-  </div>
+</div>
 
-  <script src="app.js"></script>
+<script src="app.js"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <script>
     lucide.createIcons();
+  let duty = true;
+  let mode = 'cod';
 
+  function toggleDuty(){
+    duty = !duty;
+    document.getElementById('dutySwitch').classList.toggle('off', !duty);
+    document.getElementById('dutyLabel').textContent = duty ? "You're online" : "You're offline";
+  }
 
-    let duty = true;
-    let mode = 'cod';
-
-    function toggleDuty() {
-      duty = !duty;
-      document.getElementById('dutySwitch').classList.toggle('off', !duty);
-      document.getElementById('dutyLabel').textContent = duty ? "You're online" : "You're offline";
-    }
-
-    function setMode(m) {
-      mode = m;
-      document.getElementById('btnCod').classList.toggle('selected', m === 'cod');
-      document.getElementById('btnOnline').classList.toggle('selected', m === 'online');
-      document.getElementById('newOrderBtn').setAttribute('href', withMode('new-order.html', mode));
-    }
-  </script>
+  function setMode(m){
+    mode = m;
+    document.getElementById('btnCod').classList.toggle('selected', m === 'cod');
+    document.getElementById('btnOnline').classList.toggle('selected', m === 'online');
+    document.getElementById('newOrderBtn').setAttribute('href', withMode('new-order.html', mode));
+  }
+</script>
 </body>
-
 </html>

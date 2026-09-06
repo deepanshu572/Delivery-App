@@ -225,7 +225,7 @@ form.form_data>div {
     font-weight: 800;
     text-decoration: none;
     cursor: pointer;
-    box-shadow: 0 14px 28px -12px oklch(0.585 0.221 26.5 / 0.7);
+    /* box-shadow: 0 14px 28px -12px oklch(0.585 0.221 26.5 / 0.7); */
 }
 .resend{
     color: #6d727b;
