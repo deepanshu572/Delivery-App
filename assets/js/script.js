@@ -74,9 +74,9 @@ function getPersonalDetails() {
         contentType: false,
         data: formData,
 
-        success: function(response) {
+        success: function (response) {
 
-            if(response.status == "success") {
+            if (response.status == "success") {
 
                 let data = response.data;
 
@@ -89,11 +89,11 @@ function getPersonalDetails() {
                 $("#language").val(data.language || "");
 
                 // Existing profile image
-                if(data.image_path) {
+                if (data.image_path) {
 
                     $(".circle_img").html(`
                         <img
-                            src="${imgUrl+data.image_path}"
+                            src="${imgUrl + data.image_path}"
                             alt="Profile"
                             style="
                                 width:100%;
@@ -113,7 +113,7 @@ function getPersonalDetails() {
             }
         },
 
-        error: function(xhr, status, error) {
+        error: function (xhr, status, error) {
 
             console.log("AJAX Error:", error);
             console.log(xhr.responseText);
@@ -259,9 +259,9 @@ function getEmergencyDetails() {
         contentType: false,
         data: formData,
 
-        success: function(response) {
+        success: function (response) {
 
-            if(response.status == "success") {
+            if (response.status == "success") {
 
                 let data = response.data;
 
@@ -277,7 +277,7 @@ function getEmergencyDetails() {
             }
         },
 
-        error: function(xhr, status, error) {
+        error: function (xhr, status, error) {
             console.log("AJAX Error:", error);
             console.log(xhr.responseText);
         }
@@ -486,3 +486,89 @@ function getVehicleDetails() {
     });
 }
 
+
+function getAllBranch() {
+    $.ajax({
+        url: apiUrl,
+        method: "POST",
+        dataType: "JSON",
+        data: {
+            type: "getAllBranch"
+        },
+        success: function (response) {
+            if (response.status == "success") {
+                console.log(response.data);
+                let data = response.data;
+                let branchHtml = '<option value="0">Select Branch</option>';
+                data.forEach((item)=>{
+                    branchHtml+=`<option value="${item?.id}">${item?.name}</option>`;
+                });
+                $("#branchData").html(branchHtml);
+            } else {
+                console.log(response.message);
+            }
+        }
+    })
+
+}
+
+function handleVerification() {
+    let branchId = $("#branchData").val();
+    if(branchId == 0){
+        alert("please select your branch");
+        return;
+    }
+
+    $.ajax({
+        url:apiUrl,
+        method:"POST",
+        dataType:"JSON",
+        data:{
+            type:"handleVerification",
+            branchId,
+            userId
+        },
+        success :function (response) {
+            if(response.status == "success"){
+                alert(response.message);
+                location.href="document-submit.html";
+            }else{
+                console.log(response.message);
+            }
+        }
+    })
+    
+}
+
+  function getDeliveryManStatus() {
+        $.ajax({
+            url:apiUrl,
+            method:"POST",
+            dataType:"JSON",
+            data:{
+                type:"getDeliveryManStatus",
+                userId
+            },
+            success:function(response){
+                if(response.status == "success"){
+                    let status = response.data[0].status;
+                    // let status="rejected"
+                    $(".status-container").removeClass('active');
+                    if(status == "pending"){
+                        $(".pending-status").addClass("active")
+
+                    } else if(status == "verified"){
+                        $(".confirmed-status").addClass("active")
+
+                    } if(status == "rejected"){
+                        $(".rejected-status").addClass("active")
+
+                    }
+                 console.log(response.data[0].status);
+
+                }else{
+
+                }
+            }
+        })
+      }

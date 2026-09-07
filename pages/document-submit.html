@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Application Status</title>
+
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #f7f8fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .status-container {
+            width: 100%;
+            max-width: 450px;
+            background: #ffffff;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .status-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 42px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 7px 15px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .status-container h2 {
+            font-size: 25px;
+            color: #222;
+            margin-bottom: 12px;
+        }
+
+        .status-container p {
+            color: #777;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        /* Button */
+        .status-btn {
+            width: 100%;
+            border: none;
+            padding: 13px 20px;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .status-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* ================= PENDING ================= */
+
+        .pending-status .status-icon {
+            background: #fff4dc;
+            color: #f2a900;
+        }
+
+        .pending-status .status-badge {
+            background: #fff4dc;
+            color: #d68d00;
+        }
+
+        .pending-status .status-btn {
+            background: #f2a900;
+            color: #fff;
+        }
+
+        .pending-status .status-btn:hover {
+            background: #d99400;
+        }
+
+
+        /* ================= CONFIRMED ================= */
+
+        .confirmed-status .status-icon {
+            background: #e8f8ee;
+            color: #20a05a;
+        }
+
+        .confirmed-status .status-badge {
+            background: #e8f8ee;
+            color: #168449;
+        }
+
+        .confirmed-status .status-btn {
+            background: #20a05a;
+            color: #fff;
+        }
+
+        .confirmed-status .status-btn:hover {
+            background: #168449;
+        }
+
+
+        /* ================= REJECTED ================= */
+
+        .rejected-status .status-icon {
+            background: #ffebeb;
+            color: #e53935;
+        }
+
+        .rejected-status .status-badge {
+            background: #ffebeb;
+            color: #d32f2f;
+        }
+
+        .rejected-status .status-btn {
+            background: #e53935;
+            color: #fff;
+        }
+
+        .rejected-status .status-btn:hover {
+            background: #c62828;
+        }
+
+        /* Hide by default */
+        .status-container {
+            display: none;
+        }
+
+        .status-container.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= PENDING ================= -->
+
+    <div class="status-container pending-status active">
+
+        <div class="status-icon">
+            <i class="bi bi-hourglass-split"></i>
+        </div>
+
+        <span class="status-badge">
+            Application Pending
+        </span>
+
+        <h2>Application Submitted!</h2>
+
+        <p>
+            Your application has been successfully submitted
+            and is currently under verification.
+        </p>
+
+        <button class="status-btn" onclick="goBack()">
+            <i class="bi bi-arrow-left"></i>
+            Go Back
+        </button>
+
+    </div>
+
+
+    <!-- ================= CONFIRMED ================= -->
+
+    <div class="status-container confirmed-status">
+
+        <div class="status-icon">
+            <i class="bi bi-check-circle-fill"></i>
+        </div>
+
+        <span class="status-badge">
+            Application Confirmed
+        </span>
+
+        <h2>Application Approved!</h2>
+
+        <p>
+            Congratulations! Your application has been
+            successfully verified and approved.
+        </p>
+
+        <button class="status-btn" onclick="continueApplication()">
+            Continue
+            <i class="bi bi-arrow-right"></i>
+        </button>
+
+    </div>
+
+
+    <!-- ================= REJECTED ================= -->
+
+    <div class="status-container rejected-status">
+
+        <div class="status-icon">
+            <i class="bi bi-x-circle-fill"></i>
+        </div>
+
+        <span class="status-badge">
+            Application Rejected
+        </span>
+
+        <h2>Application Rejected</h2>
+
+        <p>
+            Unfortunately, your application could not be
+            approved. Please review your information and try again.
+        </p>
+
+        <button class="status-btn" onclick="goBack()">
+            <i class="bi bi-arrow-left"></i>
+            Go Back
+        </button>
+
+    </div>
+
+
+
+
+
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <script src="/assets/js/script.js"></script>
+<script>
+    getDeliveryManStatus();
+     function goBack() {
+            window.location.replace("home.html");
+        }
+
+        function continueApplication() {
+            window.location.replace("home.html");
+        }
+</script>
+</body>
+</html>

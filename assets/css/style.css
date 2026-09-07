@@ -213,7 +213,7 @@ form.form_data>div {
     font-weight: 500;
 
 
-        display: flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     border: 0;
@@ -227,7 +227,8 @@ form.form_data>div {
     cursor: pointer;
     /* box-shadow: 0 14px 28px -12px oklch(0.585 0.221 26.5 / 0.7); */
 }
-.resend{
+
+.resend {
     color: #6d727b;
     font-size: 12px;
     line-height: 1.5;
@@ -235,11 +236,12 @@ form.form_data>div {
     text-align: center;
 }
 
-.resend a{
+.resend a {
     color: #006edc;
-        font-size: 12px;
+    font-size: 12px;
     font-weight: 700;
 }
+
 .back_btn_arrow:hover {
     background-color: #f7f7f7;
 }
@@ -421,8 +423,9 @@ form.form_data>div {
     align-items: center;
     gap: 9px;
 }
-.submit_btn img{
-        width: 20px;
+
+.submit_btn img {
+    width: 20px;
     margin-right: 3px;
 
 }
@@ -530,7 +533,7 @@ form.form_data>div {
 }
 
 .rider_dash_box>p {
-       margin-top: 4px;
+    margin-top: 4px;
     font-size: 10px;
     text-transform: uppercase;
     letter-spacing: 0.06em;
@@ -623,13 +626,13 @@ form.form_data>div {
     left: 50%;
     /* background:
         color-mix(in oklab, oklch(58.5% .221 26.5) 10%, transparent); */
-            background:
+    background:
         color-mix(in oklab, oklch(0.65 0.3 29.21) 10%, #00000000);
     width: 70px;
     height: 70px;
     translate: -50% -50%;
     border-radius: 50%;
-    animation :ping 1s cubic-bezier(0, 0, .2, 1) infinite;
+    animation: ping 1s cubic-bezier(0, 0, .2, 1) infinite;
 }
 
 @keyframes ping {
@@ -639,4 +642,41 @@ form.form_data>div {
         opacity: 0;
         transform: scale(4)
     }
+}
+
+
+.select_branch {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 17px;
+    margin-top: 10px;
+}
+
+.select_branch>select {
+    padding: 16px 10px;
+    border: none;
+    /* display: flex; */
+    /* align-items: center; */
+    gap: 12px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    /* padding: 15px 14px; */
+    text-decoration: none;
+    color: var(--card-fg);
+    box-shadow: var(--shadow-soft);
+    /* justify-content: space-between; */
+}
+
+.select_branch>label {
+    font-size: 15px;
+    margin-bottom: 8px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.select_branch label i {
+    font-size: 14px;
 }

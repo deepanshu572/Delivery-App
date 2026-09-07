@@ -24,6 +24,13 @@
                     <h2>Welcome to RiderFlow</h2>
                     <p>Just a few steps to complete and then you can start earning with Us</p>
                 </div>
+                <div class="select_branch">
+                    <label for="branchData"> <i class="fi fi-rr-analytics"></i>
+                        Select Branch</label>
+                    <select name="branch" id="branchData">
+                        <option value="0">Select Branch</option>
+                    </select>
+                </div>
 
                 <div class="ob-body">
                     <div class="bottom_sec_head">
@@ -91,12 +98,18 @@
                     </a>
 
                     <div class="grow"></div>
-                    <a class="btn-primary w-full mt3 submit_btn" href="home.html"
-                        style="margin-bottom:20px"><img src="../assets/img/icon/submit.png" alt="">Submit</a>
+                    <button onclick="handleVerification()" class="btn-primary w-full mt3 submit_btn" href="#" style="margin-bottom:20px"><img
+                            src="../assets/img/icon/submit.png" alt="">Submit</button>
                 </div>
             </div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/assets/js/script.js"></script>
+    <script>
+        getAllBranch();
+    </script>
 </body>
+
 
 </html>
