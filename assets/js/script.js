@@ -514,10 +514,10 @@ function getAllBranch() {
 
 function handleVerification() {
     let branchId = $("#branchData").val();
-    if(branchId == 0){
-        alert("please select your branch");
-        return;
-    }
+    // if(branchId == 0){
+    //     alert("please select your branch");
+    //     return;
+    // }
 
     $.ajax({
         url:apiUrl,
