@@ -91,6 +91,7 @@ function handleMobileNumberSubmit(e){
   });
 
   function handleOtpLogin(e) {
+    location.href='pages/profile.html';
     e.preventDefault();
     let otp = localStorage.getItem("otp");
     let phone = localStorage.getItem("phone");
